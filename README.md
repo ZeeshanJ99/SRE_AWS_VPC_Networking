@@ -22,7 +22,8 @@
 ## Network Access Control List (NACL)
 -  NACLs are stateless - we have to explcitly allow inbound or outbound rules - they are an added layer of security at subnet level.
 
-- Approximately 4.3 billion IP addresses in the word
+
+## Steps
 
 - Step 1: Create a VPC with IPv CDIR block 
 - `10.109.0.0/16`
