@@ -44,8 +44,15 @@
 - Step 6: Create a Security group for our app
 
 
+## AWS Regions
+A physical location around the world where we cluster our data centres. The region where the server is located that we are connecting to.
 
+Each region provides its own facilities. Not every single region has all the services available. Need to make sure you choose the right region and Availability zone for the services that you would want to use. 
 
+## AWS availability zone
+An AZ is one or more discrete data centres with reduntant power, networking and connectivity in an AWS region. Each region has at least 2 or more availability zones. e.g. Region is Europe - availability zones would be England, Ireland, Stockholm etc.
+
+To ensure reliability we deploy in multiple Availability Zones (multi AZ). So if theres a natural disaster in Ireland and the servers are compromised, we have a backup on London.
 
 
 
