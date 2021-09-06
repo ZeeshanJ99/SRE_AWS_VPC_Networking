@@ -19,16 +19,28 @@
 - Route Table RT
 - RT contains a set of rules, called routes, that are used to determine where the network traffic from your subnet or gateway is directed
 
-
-
-
-
 - Network Access Control List (NACL)
 -  NACLs are stateless - we have to explcitly allow inbound or outbound rules - they are an added layer of security at subnet level.
 
+- Approximately 4.3 billion IP addresses in the word
 
+- Step 1: Create a VPC with IPv CDIR block 
+- `10.109.0.0/16`
 
+- Step 2: Create internet gateway
+- 2.1: Attach IG to your VPC
 
+- Step 3: Create route table
+- 3.1: Edit route and insert your IG in `target`
+
+- Step 4: Create public subnet
+- -`10.109.9.0/24`
+- 4.1 associate public subnet with our RT
+
+- Step 5: Create public NACLs
+- - set inbound and outbound rules for this
+
+- Step 6: Create a Security group for our app
 
 
 
