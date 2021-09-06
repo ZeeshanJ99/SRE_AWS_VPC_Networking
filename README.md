@@ -35,7 +35,7 @@
 - 3.1: Edit route and insert your IG in `target`
 
 - Step 4: Create public subnet
-- -`10.109.9.0/24`
+- `10.109.9.0/24`
 - 4.1 associate public subnet with our RT
 
 - Step 5: Create public NACLs
