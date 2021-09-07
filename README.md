@@ -145,5 +145,16 @@ Use your IP on the blacked out section with the /32 CIDR block at the end
 
 Again use your IP on the blacked out section with the /32 CIDR block at the end
 
+### DB machine with private IP
+
+In order to create a more secure db machine, when launching the db machine, DISABLE the Auto-assign Public IP option. This will prevent a public IP address being assigned to the machine.
+
+- In order for the app machine to connect to the database, the DB_HOST environment    variable must be changed and now use the db machine's private IPv4 address.
+- We can also write the variable to the /etc/environement file as well, to ensure that the variable is persistent when sshing in
+
+Make sure that the new db IP is replaced with private IPv4 address of the db machine
+
+echo "DB_HOST=[DB-IP]:27017/posts" | sudo tee -a /etc/environment
+export DB_HOST=[DB-IP]:27017/posts
 
 
