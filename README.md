@@ -25,23 +25,96 @@
 
 ## Steps
 
-- Step 1: Create a VPC with IPv CDIR block 
+### Step 1: Create a VPC with IPv CDIR block 
 - `10.109.0.0/16`
 
-- Step 2: Create internet gateway
+### Step 2: Create internet gateway
 - 2.1: Attach IG to your VPC
 
-- Step 3: Create route table
+Add a Name tag then click Create Internet Gateway
+Select action and Attach VPC. Attach the VPC you created previously.
+
+### Step 3: Create route table
 - 3.1: Edit route and insert your IG in `target`
 
-- Step 4: Create public subnet
+After creating the RT, select it in the list, go to the Routes tab and Edit routes
+
+Add route with destination as `0.0.0.0/0` and target your IG (created previously)
+
+Click the Target box and select Internet Gateway from the dropdown menu. After this, your IG should be shown.
+
+Select your RT in the list, go to the `Subnet associations` and `Edit subnet associations`. Select your subnets and `Save associations`
+
+
+### Step 4: Create public subnet
 - `10.109.9.0/24`
 - 4.1 associate public subnet with our RT
 
-- Step 5: Create public NACLs
-- - set inbound and outbound rules for this
+- Create network ACL
 
-- Step 6: Create a Security group for our app
+Name --> `SRE_zeeshan_acl_public`
+
+Select your VPC from the dropdown menu.
+
+We will need to create a public and a private NACL for both our subnets
+
+Select your NACL from the list, go to the `Inbound rules tab` and edit your rules. Do the same for `Outbound rules`.
+
+
+### Step 5: Create public NACLs
+- - set inbound and outbound rules for this
+- star = * in all the following rules 
+
+### Public subnet rules
+
+#### Inbound Rules Public
+
+Rule | Source IP | Protocol | Port      | Allow/Deny |
+-----|-----------|----------|-----------|------------| 
+100  | 0.0.0.0/0 | HTTP     | 80        | Allow      |
+110  | My IP     | SSH      | 22        | Allow      |
+120  | 0.0.0.0/0 | TCP      | 1024-65535| Allow      |
+star | 0.0.0.0/0 | ALL      | ALL       | Deny       |
+
+- Replace My IP with your IP
+
+#### Outbound Rules Public 
+
+Rule | Source IP        | Protocol  | Port      | Allow/Deny |
+-----|------------------|-----------|-----------|------------| 
+100  | 0.0.0.0/0        | HTTP      | 80        | Allow      |
+110  | 10.109.10.0/24   | TCP       | 27017     | Allow      |
+120  | 0.0.0.0/0        | TCP       | 1024-65535| Allow      |
+star | 0.0.0.0/0        | ALL       | ALL       | Deny       |
+
+`10.109.9.0/24` is the address of the private subnet. This allows the app to send a request for data from the db machine
+
+
+### Private subnet rules
+
+#### Inbound Rules Private
+
+Rule | Source IP     | Protocol | Port      | Allow/Deny |
+-----|---------------|----------|-----------|------------| 
+100  | 10.109.9.0/24 | TCP      | 27017     | Allow      |
+110  | My IP         | SSH      | 22        | Allow      |
+120  | 0.0.0.0/0     | TCP      | 1024-65535| Allow      |
+star | 0.0.0.0/0     | ALL      | ALL       | Deny       |
+
+Again, the public subnet address is required here. This is to allow the app machine to request data from the db machine.
+
+#### Outbound Rules Private
+
+Rule | Source IP        | Protocol  | Port      | Allow/Deny |
+-----|------------------|-----------|-----------|------------| 
+100  | 0.0.0.0/0        | HTTP      | 80        | Allow      |
+120  | 0.0.0.0/0        | TCP       | 1024-65535| Allow      |
+star | 0.0.0.0/0        | ALL       | ALL       | Deny       |
+
+
+
+
+### Step 6: Create a Security group for our app
 
 
 ## AWS Regions
