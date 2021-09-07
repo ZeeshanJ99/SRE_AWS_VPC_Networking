@@ -185,6 +185,30 @@ instructions to do so are in the markdown link shah rukh sent
 
 ## S3
 
+- Ensure that your machine is connected to the internet using `ping www.bbc.com`
+- `sudo apt-get update`
+- `sudo apt-get upgrade`
+- `sudo apt-get install python`
+- `sudo apt-get install python3-pip`
+- `alias python=python3`
+- `python --version` should display python version as above 3
+- `python3 -m pip install awscli`
+
+### aws configure
+`aws configure`
+- now add your access key ID
+- add Secret access key 
+- region name = `eu-west-1`
+- Default output format = `json`
+- `aws s3 ls` - this should show a list of buckets
 
 
+#### Creating a bucket
+`aws s3 mb s3://srezeeshan`
+
+#### Creating a file
+`sudo nano README.md` add some text in the file and save
+
+#### Pushing the file to the bucket
+`aws s3 cp README.md s3://srezeeshan/`
 
