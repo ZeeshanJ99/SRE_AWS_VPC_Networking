@@ -191,6 +191,7 @@ Make sure that the new db IP is replaced with private IPv4 address of the db mac
 - `python --version` should display python version as above 3
 - `python3 -m pip install awscli`
 
+---------------------------------------------------
 ### aws configure
 `aws configure`
 - now add your access key ID
@@ -199,6 +200,7 @@ Make sure that the new db IP is replaced with private IPv4 address of the db mac
 - Default output format = `json`
 - `aws s3 ls` - this should show a list of buckets
 
+-----------------------------------------------------------
 
 #### Creating a bucket
 `aws s3 mb s3://srezeeshan`
@@ -215,4 +217,6 @@ Make sure that the new db IP is replaced with private IPv4 address of the db mac
 #### Deleting a bucket with the files in it
 `aws s3 rb s3://srezeeshan --force`
 
-
+-----------------------------------------------------
+## Python Boto3
+`pip3 install boto3
