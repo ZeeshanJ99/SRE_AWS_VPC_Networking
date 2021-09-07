@@ -22,6 +22,8 @@
 ## Network Access Control List (NACL)
 -  NACLs are stateless - we have to explcitly allow inbound or outbound rules - they are an added layer of security at subnet level.
 
+----------------------------------------------------------
+
 ## AWS Regions
 A physical location around the world where we cluster our data centres. The region where the server is located that we are connecting to.
 
