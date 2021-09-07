@@ -69,6 +69,7 @@ We will need to create a public and a private NACL for both our subnets
 
 Select your NACL from the list, go to the `Inbound rules tab` and edit your rules. Do the same for `Outbound rules`.
 
+----------------------------------------
 
 ### Step 5: Create public NACLs
 - - set inbound and outbound rules for this
@@ -98,6 +99,7 @@ star | 0.0.0.0/0        | ALL       | ALL       | Deny       |
 
 `10.109.9.0/24` is the address of the private subnet. This allows the app to send a request for data from the db machine
 
+-------------------------------------------
 
 ### Private subnet rules
 
@@ -127,6 +129,8 @@ star | 0.0.0.0/0        | ALL       | ALL       | Deny       |
 ### Create EC2 instances
 When the network is set up, which allows communication between the subnets we can now initialise the app and db machines using the AMI. If you cant remember how to do so follow this link https://github.com/ZeeshanJ99/two_tier_architecture
 
+Remember when launching each machine, select the new VPC and subnets that you have created
+
 #### Step 6: Creating Security groups for our app and db
 
 #### App security group rules
@@ -140,4 +144,6 @@ Use your IP on the blacked out section with the /32 CIDR block at the end
 ![DB SG rules](https://user-images.githubusercontent.com/88186084/132342858-0347f7c7-b1f1-4771-a353-df35023f82b7.jpg)
 
 Again use your IP on the blacked out section with the /32 CIDR block at the end
+
+
 
