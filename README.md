@@ -34,12 +34,20 @@ An AZ is one or more discrete data centres with reduntant power, networking and 
 
 To ensure reliability we deploy in multiple Availability Zones (multi AZ). So if theres a natural disaster in Ireland and the servers are compromised, we have a backup on London.
 
+----------------------------------------
+
+### Diagram of what we will create
+
+![image](https://user-images.githubusercontent.com/88186084/132349397-60f34584-eca7-4a02-8df8-fae1be39d4d8.png)
+
+------------------------------------------------------------------------
+
 ## Steps to create a custom VPC with subnets
 
 ### Step 1: Create a VPC with IPv CDIR block 
 - `10.109.0.0/16`
 
-----------------------------------------------------------
+-------------------------------------------------------------
 
 ### Step 2: Create internet gateway
 - 2.1: Attach IG to your VPC
@@ -140,7 +148,7 @@ Remember when launching each machine, select the new VPC and subnets that you ha
 
 -----------------------------------------------------
 
-#### Step 6: Creating Security groups for our app and db
+### Step 6: Creating Security groups for our app and db
 
 #### App security group rules
 
