@@ -22,8 +22,17 @@
 ## Network Access Control List (NACL)
 -  NACLs are stateless - we have to explcitly allow inbound or outbound rules - they are an added layer of security at subnet level.
 
+## AWS Regions
+A physical location around the world where we cluster our data centres. The region where the server is located that we are connecting to.
 
-## Steps
+Each region provides its own facilities. Not every single region has all the services available. Need to make sure you choose the right region and Availability zone for the services that you would want to use. 
+
+## AWS availability zone
+An AZ is one or more discrete data centres with reduntant power, networking and connectivity in an AWS region. Each region has at least 2 or more availability zones. e.g. Region is Europe - availability zones would be England, Ireland, Stockholm etc.
+
+To ensure reliability we deploy in multiple Availability Zones (multi AZ). So if theres a natural disaster in Ireland and the servers are compromised, we have a backup on London.
+
+## Steps to create a custom VPC with subnets
 
 ### Step 1: Create a VPC with IPv CDIR block 
 - `10.109.0.0/16`
@@ -113,19 +122,22 @@ star | 0.0.0.0/0        | ALL       | ALL       | Deny       |
 
 
 
+-----------------------
 
-### Step 6: Create a Security group for our app
+### Create EC2 instances
+When the network is set up, which allows communication between the subnets we can now initialise the app and db machines using the AMI. If you cant remember how to do so follow this link https://github.com/ZeeshanJ99/two_tier_architecture
 
+#### Step 6: Creating Security groups for our app and db
 
-## AWS Regions
-A physical location around the world where we cluster our data centres. The region where the server is located that we are connecting to.
+#### App security group rules
 
-Each region provides its own facilities. Not every single region has all the services available. Need to make sure you choose the right region and Availability zone for the services that you would want to use. 
+![App SG rules](https://user-images.githubusercontent.com/88186084/132342466-c880a61c-2d34-4131-9a48-f135199f1e9d.jpg)
 
-## AWS availability zone
-An AZ is one or more discrete data centres with reduntant power, networking and connectivity in an AWS region. Each region has at least 2 or more availability zones. e.g. Region is Europe - availability zones would be England, Ireland, Stockholm etc.
+Use your IP on the blacked out section with the /32 CIDR block at the end
 
-To ensure reliability we deploy in multiple Availability Zones (multi AZ). So if theres a natural disaster in Ireland and the servers are compromised, we have a backup on London.
+#### DB security group rules
 
+![DB SG rules](https://user-images.githubusercontent.com/88186084/132342858-0347f7c7-b1f1-4771-a353-df35023f82b7.jpg)
 
+Again use your IP on the blacked out section with the /32 CIDR block at the end
 
