@@ -182,6 +182,8 @@ Make sure that the new db IP is replaced with private IPv4 address of the db mac
 ---------------------------------------------------
 ## S3
 
+![image](https://user-images.githubusercontent.com/88186084/132372712-88c3e65e-4c62-4388-bddc-be91560c5ae8.png)
+
 - Ensure that your machine is connected to the internet using `ping www.bbc.com`
 - `sudo apt-get update`
 - `sudo apt-get upgrade`
