@@ -180,9 +180,6 @@ Make sure that the new db IP is replaced with private IPv4 address of the db mac
 `export DB_HOST=[DB-IP]:27017/posts`
 
 ---------------------------------------------------
-Paste this in a new Readme in the same repo called S3.md
-instructions to do so are in the markdown link shah rukh sent
-
 ## S3
 
 - Ensure that your machine is connected to the internet using `ping www.bbc.com`
