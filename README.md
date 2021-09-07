@@ -154,7 +154,9 @@ In order to create a more secure db machine, when launching the db machine, DISA
 
 Make sure that the new db IP is replaced with private IPv4 address of the db machine
 
-echo "DB_HOST=[DB-IP]:27017/posts" | sudo tee -a /etc/environment
-export DB_HOST=[DB-IP]:27017/posts
+[DB-IP} will be the new private IPv4 address you get
 
+`echo "DB_HOST=[DB-IP]:27017/posts" | sudo tee -a /etc/environment`
+
+`export DB_HOST=[DB-IP]:27017/posts`
 
