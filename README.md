@@ -37,11 +37,15 @@ To ensure reliability we deploy in multiple Availability Zones (multi AZ). So if
 ### Step 1: Create a VPC with IPv CDIR block 
 - `10.109.0.0/16`
 
+----------------------------------------------------------
+
 ### Step 2: Create internet gateway
 - 2.1: Attach IG to your VPC
 
 Add a Name tag then click Create Internet Gateway
 Select action and Attach VPC. Attach the VPC you created previously.
+
+----------------------------------------------------------
 
 ### Step 3: Create route table
 - 3.1: Edit route and insert your IG in `target`
@@ -54,6 +58,7 @@ Click the Target box and select Internet Gateway from the dropdown menu. After t
 
 Select your RT in the list, go to the `Subnet associations` and `Edit subnet associations`. Select your subnets and `Save associations`
 
+----------------------------------------------------------
 
 ### Step 4: Create public subnet
 - `10.109.9.0/24`
@@ -69,7 +74,7 @@ We will need to create a public and a private NACL for both our subnets
 
 Select your NACL from the list, go to the `Inbound rules tab` and edit your rules. Do the same for `Outbound rules`.
 
-----------------------------------------
+-----------------------------------------------
 
 ### Step 5: Create public NACLs
 - - set inbound and outbound rules for this
@@ -99,7 +104,7 @@ star | 0.0.0.0/0        | ALL       | ALL       | Deny       |
 
 `10.109.9.0/24` is the address of the private subnet. This allows the app to send a request for data from the db machine
 
--------------------------------------------
+-------------------------------------------------
 
 ### Private subnet rules
 
@@ -131,6 +136,8 @@ When the network is set up, which allows communication between the subnets we ca
 
 Remember when launching each machine, select the new VPC and subnets that you have created
 
+-----------------------------------------------------
+
 #### Step 6: Creating Security groups for our app and db
 
 #### App security group rules
@@ -144,6 +151,8 @@ Use your IP on the blacked out section with the /32 CIDR block at the end
 ![DB SG rules](https://user-images.githubusercontent.com/88186084/132342858-0347f7c7-b1f1-4771-a353-df35023f82b7.jpg)
 
 Again use your IP on the blacked out section with the /32 CIDR block at the end
+
+----------------------------------------------------
 
 ### DB machine with private IP
 
