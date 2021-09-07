@@ -216,6 +216,6 @@ instructions to do so are in the markdown link shah rukh sent
 `aws s3 sync . s3://srezeeshan/`
 
 #### Deleting a bucket with the files in it
-`aws s3 rb s3://sreviktor --force`
+`aws s3 rb s3://srezeeshan --force`
 
 
