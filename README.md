@@ -221,4 +221,4 @@ Make sure that the new db IP is replaced with private IPv4 address of the db mac
 
 -----------------------------------------------------
 ## Python Boto3
-`pip3 install boto3
+`pip3 install boto3`
