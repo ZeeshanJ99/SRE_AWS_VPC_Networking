@@ -221,4 +221,21 @@ Make sure that the new db IP is replaced with private IPv4 address of the db mac
 
 -----------------------------------------------------
 ## Python Boto3
-`pip3 install boto3`
+
+`pip3 install boto3` in the terminal
+
+- After that to enter python use `python` in the terminal
+ 
+- When in python 
+
+`import boto3`
+
+- Now you need to make a variable for an s3 resource 
+
+`s3 = boto3.resource('s3')`
+
+- 
+
+
+
+
