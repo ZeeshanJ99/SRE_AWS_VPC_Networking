@@ -212,3 +212,10 @@ instructions to do so are in the markdown link shah rukh sent
 #### Pushing the file to the bucket
 `aws s3 cp README.md s3://srezeeshan/`
 
+#### Updating or Syncing a bucket with a directory
+`aws s3 sync . s3://srezeeshan/`
+
+#### Deleting a bucket with the files in it
+`aws s3 rb s3://sreviktor --force`
+
+
