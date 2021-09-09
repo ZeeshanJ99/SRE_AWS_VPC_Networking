@@ -234,7 +234,29 @@ Make sure that the new db IP is replaced with private IPv4 address of the db mac
 
 `s3 = boto3.resource('s3')`
 
-- 
+---------------------------------------------------------------------------
+
+### To print out all bucket names:
+
+      for bucket in s3.buckets.all():
+          print(bucket.name)
+
+-------------------------------------------------------------------
+
+### Create a bucket:
+
+    s3.create_bucket(Bucket='bucket_name', CreateBucketConfiguration={
+        'LocationConstraint': 'eu-west-1'})
+
+----------------------------------------------------------------------------------------
+
+### To upload a new file to a bucket:
+
+    data = open('file', 'rb')
+    s3.Bucket('bucket_name').put_object(Key='file', Body=data)
+
+Or you can use:
+`s3.Object('bucket_name', 'file').put(Body=open('file', 'rb'))`
 
 
 
